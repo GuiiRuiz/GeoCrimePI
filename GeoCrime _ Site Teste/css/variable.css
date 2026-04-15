@@ -1,0 +1,129 @@
+/*
+ * GeoCrime — Design Tokens
+ * Fonte única de verdade para todas as variáveis visuais
+ */
+
+:root {
+
+  /* ── Paleta principal ───────────────────────────────── */
+
+  --clr-blue-950:   #040d1a;
+  --clr-blue-900:   #0a1628;
+  --clr-blue-800:   #0d2246;
+  --clr-blue-700:   #0d3a7a;
+  --clr-blue-600:   #1a4db5;
+  --clr-blue-500:   #1a56db;
+  --clr-blue-400:   #3b82f6;
+  --clr-blue-300:   #60a5fa;
+  --clr-blue-200:   #93c5fd;
+  --clr-blue-100:   #dbeafe;
+
+  --clr-cyan-500:   #06b6d4;
+  --clr-cyan-400:   #22d3ee;
+  --clr-cyan-300:   #67e8f9;
+
+  --clr-white:      #ffffff;
+
+  --clr-gray-50:    #f8faff;
+  --clr-gray-100:   #f0f4ff;
+  --clr-gray-200:   #e2e8f0;
+  --clr-gray-300:   #cbd5e1;
+  --clr-gray-400:   #94a3b8;
+  --clr-gray-500:   #64748b;
+  --clr-gray-600:   #475569;
+  --clr-gray-700:   #334155;
+  --clr-gray-800:   #1e293b;
+  --clr-gray-900:   #0f172a;
+
+  --clr-green-500:  #22c55e;
+  --clr-yellow-500: #f59e0b;
+  --clr-red-500:    #ef4444;
+  --clr-purple-500: #a855f7;
+
+  /* ── Gradientes ─────────────────────────────────────── */
+
+  --grad-primary:      linear-gradient(135deg, var(--clr-blue-500), var(--clr-cyan-500));
+  --grad-hero:         linear-gradient(160deg, var(--clr-blue-900) 0%, var(--clr-blue-800) 50%, var(--clr-blue-700) 100%);
+  --grad-dark:         linear-gradient(160deg, var(--clr-blue-900) 0%, var(--clr-blue-800) 100%);
+  --grad-text-dark:    linear-gradient(135deg, var(--clr-blue-500), var(--clr-cyan-500));
+  --grad-text-light:   linear-gradient(135deg, var(--clr-blue-300), var(--clr-cyan-300));
+  --grad-cta:          linear-gradient(135deg, var(--clr-blue-500) 0%, var(--clr-blue-700) 50%, var(--clr-blue-900) 100%);
+
+  /* ── Sombras ────────────────────────────────────────── */
+
+  --shadow-xs:      0 1px 4px  rgba(0, 0, 0, 0.04);
+  --shadow-sm:      0 2px 8px  rgba(0, 0, 0, 0.06);
+  --shadow-md:      0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg:      0 8px 40px rgba(0, 0, 0, 0.12);
+  --shadow-xl:      0 20px 60px rgba(0, 0, 0, 0.18);
+  --shadow-2xl:     0 30px 80px rgba(0, 0, 0, 0.25);
+  --shadow-blue:    0 6px 24px rgba(26, 86, 219, 0.35);
+  --shadow-blue-lg: 0 12px 40px rgba(26, 86, 219, 0.5);
+
+  /* ── Tipografia (escala modular 1.25) ───────────────── */
+
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.25rem;    /* 20px */
+  --text-2xl:  1.5rem;     /* 24px */
+  --text-3xl:  1.875rem;   /* 30px */
+  --text-4xl:  2.25rem;    /* 36px */
+  --text-5xl:  3rem;       /* 48px */
+  --text-6xl:  3.75rem;    /* 60px */
+
+  /* ── Espaçamento (múltiplos de 4px) ─────────────────── */
+
+  --sp-1:  0.25rem;   /* 4px  */
+  --sp-2:  0.5rem;    /* 8px  */
+  --sp-3:  0.75rem;   /* 12px */
+  --sp-4:  1rem;      /* 16px */
+  --sp-5:  1.25rem;   /* 20px */
+  --sp-6:  1.5rem;    /* 24px */
+  --sp-8:  2rem;      /* 32px */
+  --sp-10: 2.5rem;    /* 40px */
+  --sp-12: 3rem;      /* 48px */
+  --sp-16: 4rem;      /* 64px */
+  --sp-20: 5rem;      /* 80px */
+  --sp-24: 6rem;      /* 96px */
+  --sp-32: 8rem;      /* 128px */
+
+  /* ── Border radius ──────────────────────────────────── */
+
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   18px;
+  --radius-2xl:  22px;
+  --radius-3xl:  30px;
+  --radius-full: 9999px;
+
+  /* ── Transições ─────────────────────────────────────── */
+
+  --ease-fast:  150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-base:  300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-slow:  500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout ─────────────────────────────────────────── */
+
+  --max-w:       1200px;
+  --pad-x:       24px;
+
+  /* ── Z-index ────────────────────────────────────────── */
+
+  --z-bg:      -1;
+  --z-base:     1;
+  --z-raised:   10;
+  --z-overlay: 100;
+  --z-nav:    1000;
+  --z-modal:  2000;
+}
+
+/* ── Breakpoints de referência (usados via media query) ─
+   sm:  640px
+   md:  768px
+   lg:  1024px
+   xl:  1280px
+──────────────────────────────────────────────────────── */

@@ -1,0 +1,300 @@
+/*
+ * GeoCrime — Navegação global
+ * Barra fixa com logo SVG real e transição ao scroll
+ */
+
+/* ── Wrapper ────────────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: var(--z-nav);
+  transition:
+    background  var(--ease-base),
+    box-shadow  var(--ease-base);
+}
+
+.nav.is-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 28px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Inner ──────────────────────────────────────────── */
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px var(--pad-x);
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+
+/* ── Logo ───────────────────────────────────────────── */
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.nav__logo-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+/* Traços brancos no hero, azul-escuro ao scrollar */
+.nav__logo-icon .logo-stroke {
+  stroke: var(--clr-white);
+  transition: stroke var(--ease-base);
+}
+
+.nav.is-scrolled .nav__logo-icon .logo-stroke {
+  stroke: var(--clr-blue-900);
+}
+
+.nav__logo-wordmark {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.nav__logo-geo {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--clr-white);
+  letter-spacing: -0.5px;
+  transition: color var(--ease-base);
+}
+
+.nav__logo-crime {
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--clr-white);
+  letter-spacing: -0.3px;
+  transition: color var(--ease-base);
+}
+
+.nav.is-scrolled .nav__logo-geo,
+.nav.is-scrolled .nav__logo-crime {
+  color: var(--clr-blue-900);
+}
+
+/* ── Links ──────────────────────────────────────────── */
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav__link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--ease-fast);
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--clr-cyan-500);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transition: transform var(--ease-base);
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--clr-white);
+}
+
+.nav__link.is-active::after,
+.nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav.is-scrolled .nav__link {
+  color: var(--clr-gray-500);
+}
+
+.nav.is-scrolled .nav__link:hover,
+.nav.is-scrolled .nav__link.is-active {
+  color: var(--clr-blue-500);
+}
+
+/* ── Botões ─────────────────────────────────────────── */
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.nav__btn-login {
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  background: transparent;
+  color: var(--clr-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition:
+    border-color  var(--ease-base),
+    background    var(--ease-base),
+    color         var(--ease-base);
+}
+
+.nav__btn-login:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.nav.is-scrolled .nav__btn-login {
+  color: var(--clr-blue-500);
+  border-color: var(--clr-blue-200);
+}
+
+.nav.is-scrolled .nav__btn-login:hover {
+  border-color: var(--clr-blue-500);
+  background: rgba(26, 86, 219, 0.05);
+}
+
+.nav__btn-signup {
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  background: var(--grad-primary);
+  color: var(--clr-white);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 14px rgba(26, 86, 219, 0.32);
+  transition:
+    transform   var(--ease-base),
+    box-shadow  var(--ease-base);
+}
+
+.nav__btn-signup:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(26, 86, 219, 0.52);
+}
+
+/* ── Hamburguer ─────────────────────────────────────── */
+
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav__burger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--clr-white);
+  border-radius: var(--radius-full);
+  transition:
+    transform  var(--ease-base),
+    opacity    var(--ease-base),
+    background var(--ease-base);
+}
+
+.nav.is-scrolled .nav__burger-line {
+  background: var(--clr-gray-700);
+}
+
+/* Estado aberto */
+.nav__burger.is-open .nav__burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__burger.is-open .nav__burger-line:nth-child(2) {
+  opacity: 0;
+}
+.nav__burger.is-open .nav__burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Menu mobile ────────────────────────────────────── */
+
+.nav__mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--clr-blue-900);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  z-index: calc(var(--z-nav) - 1);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity  var(--ease-base),
+    transform var(--ease-base);
+  transform: translateY(-12px);
+}
+
+.nav__mobile-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav__mobile-link {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--ease-fast);
+}
+
+.nav__mobile-link:hover {
+  color: var(--clr-white);
+}
+
+.nav__mobile-actions {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .nav__links,
+  .nav__actions {
+    display: none;
+  }
+
+  .nav__burger {
+    display: flex;
+  }
+}
+
+/* Utilitário acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
