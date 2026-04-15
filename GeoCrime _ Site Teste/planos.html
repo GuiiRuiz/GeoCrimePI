@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoCrime | Planos e Preços</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        body {
+            background-color: #0a0e14;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .header-planos {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header-planos h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+
+        .header-planos p {
+            color: #94a3b8;
+            font-size: 18px;
+            max-width: 600px;
+        }
+
+        /* --- GRID DE PLANOS --- */
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .plan-card {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+            padding: 40px 32px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Efeito de destaque no Plano Intermediário */
+        .plan-card.featured {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+            transform: scale(1.05);
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .plan-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .plan-price span {
+            font-size: 16px;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            margin-bottom: 16px;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        .plan-features li::before {
+            content: "✓";
+            color: #3b82f6;
+            font-weight: 700;
+        }
+
+        .plan-features li.disabled {
+            color: #64748b;
+            text-decoration: line-through;
+        }
+
+        .plan-features li.disabled::before {
+            content: "✕";
+            color: #475569;
+        }
+
+        .btn-plan {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-free {
+            background-color: #1e293b;
+            color: white;
+        }
+
+        .btn-pro {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .btn-pro:hover {
+            background-color: #2563eb;
+        }
+
+        /* Interatividade via JS classes */
+        .plan-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-planos">
+        <h1>Escolha seu plano</h1>
+        <p>Acesse inteligência de dados em tempo real para proteger o que mais importa para você.</p>
+    </div>
+
+    <div class="plans-container">
+        <div class="plan-card" id="card-free">
+            <span class="plan-name">Básico</span>
+            <div class="plan-price">R$ 0 <span>/mês</span></div>
+            <ul class="plan-features">
+                <li>Mapa de calor básico</li>
+                <li>Consulta por bairro</li>
+                <li>Dados das últimas 24h</li>
+                <li class="disabled">Exportação de relatórios</li>
+                <li class="disabled">Alertas via WhatsApp</li>
+            </ul>
+            <a href="cadastro.html" class="btn-plan btn-free">Começar agora</a>
+        </div>
+
+        <div class="plan-card featured" id="card-pro">
+            <div class="featured-tag">Mais Popular</div>
+            <span class="plan-name">Profissional</span>
+            <div class="plan-price">R$ 49 <span>/mês</span></div>
+            <ul class="plan-features">
+                <li>Mapa de calor em tempo real</li>
+                <li>Consulta por endereço exato</li>
+                <li>Histórico de 30 dias</li>
+                <li>Exportação de 5 relatórios/mês</li>
+                <li class="disabled">Alertas via WhatsApp</li>
+            </ul>
+            <a href="cadastro.html" class="btn-plan btn-pro">Assinar Pro</a>
+        </div>
+
+        <div class="plan-card" id="card-enterprise">
+            <span class="plan-name">Enterprise</span>
+            <div class="plan-price">R$ 99 <span>/mês</span></div>
+            <ul class="plan-features">
+                <li>Tudo do plano Profissional</li>
+                <li>Histórico criminal vitalício</li>
+                <li>Exportação ilimitada (PDF/CSV)</li>
+                <li>Alertas em tempo real via WhatsApp</li>
+                <li>Previsão de zonas de risco (IA)</li>
+            </ul>
+            <a href="cadastro.html" class="btn-plan btn-pro">Assinar Elite</a>
+        </div>
+    </div>
+
+    <script>
+        // INTERATIVIDADE JAVASCRIPT
+        const cards = document.querySelectorAll('.plan-card');
+
+        cards.forEach(card => {
+            // Ao clicar no card, ele "seleciona" visualmente
+            card.addEventListener('click', () => {
+                // Remove destaque de todos
+                cards.forEach(c => c.classList.remove('featured'));
+                
+                // Adiciona destaque ao clicado
+                card.classList.add('featured');
+                
+                // Pequena animação de pulso
+                card.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    card.style.transform = card.classList.contains('featured') ? 'scale(1.05)' : 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

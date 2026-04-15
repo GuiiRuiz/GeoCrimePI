@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>GeoCrime — Inteligência em Segurança Pública</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
 <style>
 /* ══════════════════════════════════════════════
    RESET
@@ -724,13 +725,14 @@ footer{background:#0a1628;padding:64px 0 28px}
     <ul class="nav__links">
       <li><a href="#features">Funcionalidades</a></li>
       <li><a href="#how">Metodologia</a></li>
-      <li><a href="plans.html">Planos</a></li>
+      <li><a href="planos.html">Planos</a></li>
     </ul>
 
     <div class="nav__actions">
-      <a href="map.html" class="btn-login" data-modal="login">Entrar</a>
-      <button class="btn-signup" data-modal="signup">Cadastro</button>
-    </div>
+    <a href="login.html" class="btn-login">Entrar</a>
+    <a href="cadastro.html" class="btn-signup">Cadastro</a>
+
+  </div>
   </div>
 </nav>
 
@@ -758,7 +760,7 @@ footer{background:#0a1628;padding:64px 0 28px}
       </p>
 
       <div class="hero__actions">
-        <a href="plans.html" class="btn-hero-primary">Começar agora</a>
+       <a href="cadastro.html" class="btn btn-primary">Começar agora</a>
         <a href="#map-section" class="btn-hero-outline">Ver mapa ao vivo</a>
       </div>
 
@@ -824,6 +826,208 @@ footer{background:#0a1628;padding:64px 0 28px}
     </div>
   </div>
 </section>
+
+<section class="stats-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-subtitle">DADOS & PESQUISAS</p>
+            <h2 class="section-title">Números que importam</h2>
+            <p class="section-description">
+                Dados reais de fontes oficiais brasileiras que reforçam a necessidade de <br>
+                transparência e acesso à informação sobre segurança pública.
+            </p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="card-icon icon-red">⚠️</div>
+                <h3 class="card-number">47.508</h3>
+                <h4 class="card-label">Homicídios em 2023</h4>
+                <p class="card-text">Segundo o Atlas da Violência, o Brasil registrou queda de 2,4% em relação ao ano anterior.</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-icon icon-yellow">🕒</div>
+                <h3 class="card-number">1 a cada 10min</h3>
+                <h4 class="card-label">Roubos de veículos</h4>
+                <p class="card-text">Um veículo é roubado a cada 10 minutos no Brasil, segundo dados do SINESP.</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-icon icon-blue">📍</div>
+                <h3 class="card-number">70%</h3>
+                <h4 class="card-label">Concentração urbana</h4>
+                <p class="card-text">Aproximadamente 70% dos crimes violentos ocorrem em regiões metropolitanas.</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-icon icon-purple">👤</div>
+                <h3 class="card-number">15 a 29 anos</h3>
+                <h4 class="card-label">Faixa etária mais afetada</h4>
+                <p class="card-text">Jovens entre 15 e 29 anos representam mais de 50% das vítimas de homicídio.</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-icon icon-cyan">📈</div>
+                <h3 class="card-number">32%</h3>
+                <h4 class="card-label">Aumento em crimes digitais</h4>
+                <p class="card-text">Crimes cibernéticos cresceram 32% no último ano, incluindo fraudes e golpes online.</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-icon icon-orange">🛡️</div>
+                <h3 class="card-number">88%</h3>
+                <h4 class="card-label">Subnotificação estimada</h4>
+                <p class="card-text">Estima-se que apenas 12% dos crimes contra o patrimônio são formalmente registrados.</p>
+            </div>
+        </div>
+
+        <p class="source-footer">Fontes: Atlas da Violência (IPEA), SINESP, Fórum Brasileiro de Segurança Pública</p>
+    </div>
+    <style>
+    /* Responsividade para celulares */
+@media (max-width: 992px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.stat-card {
+    background-color: #161b22; /* Cor de fundo dos cards */
+    border: 1px solid #30363d;
+    padding: 30px;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card:nth-child(1) .card-number { color: #ff4d4d; }
+.stat-card:nth-child(2) .card-number { color: #fbbf24; }
+.stat-card:nth-child(3) .card-number { color: #60a5fa; }
+.stat-card:nth-child(4) .card-number { color: #c084fc; }
+.stat-card:nth-child(5) .card-number { color: #22d3ee; }
+.stat-card:nth-child(6) .card-number { color: #fb923c; }
+
+.stats-section {
+    padding: 80px 20px;
+    /* Esta é a cor exata do gradiente inicial da sua Landing Page */
+    background-color: #0a1628; 
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    color: #3b82f6; /* Azul GeoCrime */
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.section-description {
+    color: #94a3b8;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* --- GRID DE CARDS --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    /* Cor dos cards presente na imagem que enviou */
+    background-color: lch(4.95% 4.18 269.95); 
+    border: 1px solid #1f2937;
+    padding: 32px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    /* Brilho azul GeoCrime ao passar o rato */
+    border-color: rgb(59, 130, 246); 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+/* Ícones */
+.card-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Cores específicas para os ícones (opcional) */
+.icon-red { background: rgba(239, 68, 68, 0.1); }
+.icon-yellow { background: rgba(245, 158, 11, 0.1); }
+.icon-blue { background: rgba(59, 130, 246, 0.1); }
+.icon-purple { background: rgba(168, 85, 247, 0.1); }
+.icon-cyan { background: rgba(6, 182, 212, 0.1); }
+.icon-orange { background: rgba(249, 115, 22, 0.1); }
+
+/* Textos do Card */
+.card-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.card-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3b82f6;
+    margin-bottom: 12px;
+}
+
+.card-text {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Rodapé das Fontes */
+.source-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #475569;
+    margin-top: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 768px) {
+    .section-title { font-size: 28px; }
+    .stats-grid { grid-template-columns: 1fr; }
+}
+</style>
+</section> 
+
 
 <!-- ════════════════ STATS BAR ════════════════ -->
 <div class="stats-bar">
@@ -974,7 +1178,7 @@ footer{background:#0a1628;padding:64px 0 28px}
       <p class="cta-desc">Acesso gratuito ao mapa nacional. Escolha um plano para desbloquear análises por bairro, relatórios e API.</p>
       <div class="cta-actions">
         <button class="btn-cta-white" data-modal="signup"> Criar conta grátis</button>
-        <a href="plans.html" class="btn-cta-ghost">Ver planos</a>
+        <a href="planos.html" class="btn-cta-ghost">Ver planos</a>
       </div>
     </div>
   </div>
@@ -1008,7 +1212,7 @@ footer{background:#0a1628;padding:64px 0 28px}
           <a class="footer-link" href="#features">Funcionalidades</a>
           <a class="footer-link" href="#how">Como funciona</a>
           <a class="footer-link" href="#map-section">Mapa ao vivo</a>
-          <a class="footer-link" href="plans.html">Planos</a>
+          <a class="footer-link" href="planos.html">Planos</a>
         </div>
       </div>
       <div>

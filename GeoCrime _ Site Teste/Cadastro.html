@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoCrime | Cadastro</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GERAIS E FORÇAR FONTE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* O !important garante que a fonte mude mesmo se houver outros arquivos CSS */
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        body {
+            background-color: #0a0e14; /* Fundo escuro profundo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        /* --- CONTAINER PRINCIPAL --- */
+        .auth-container {
+            background-color: #0f172a; /* Azul acinzentado escuro do card */
+            border: 1px solid #1e293b;
+            padding: 40px 32px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- BOTÃO FECHAR (X) --- */
+        .btn-close-x {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #94a3b8;
+            font-size: 24px;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .btn-close-x:hover {
+            color: #ffffff;
+        }
+
+        /* --- LOGO E CABEÇALHO --- */
+        .auth-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo-row img {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .auth-header h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.025em;
+        }
+
+        .auth-header p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* --- FORMULÁRIO E INPUTS --- */
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+
+        .input-group input {
+            background-color: #1e293b; /* Fundo do input igual à imagem */
+            border: 1px solid #334155;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 1px #3b82f6;
+        }
+
+        .input-group input::placeholder {
+            color: #64748b;
+        }
+
+        /* --- BOTÃO CADASTRAR --- */
+        .btn-primary-auth {
+            background-color: #3b82f6; /* Azul Royal padrão */
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .btn-primary-auth:hover {
+            background-color: #2563eb;
+        }
+
+        /* --- FOOTER --- */
+        .auth-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .auth-footer a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<section class="auth-section">
+    <div class="auth-container">
+        <a href="index.html" class="btn-close-x">&times;</a>
+
+        <div class="auth-header">
+            <div class="logo-row">
+                <img src="assests/logo.svg" alt="GeoCrime Logo">
+                <span class="logo-text">GeoCrime</span>
+            </div>
+            <h2>Criar nova conta</h2>
+            <p>Junte-se à maior rede de monitoramento de segurança pública do Brasil.</p>
+        </div>
+
+        <form class="auth-form">
+            <div class="input-group">
+                <label for="name">Nome completo</label>
+                <input type="text" id="name" placeholder="Ex: João Silva" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="No mínimo 8 caracteres" required>
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirmar Senha</label>
+                <input type="password" id="confirm-password" placeholder="Repita sua senha" required>
+            </div>
+
+            <button type="submit" class="btn-primary-auth">Cadastrar-se</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>Já possui uma conta? <a href="login.html">Fazer login</a></p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
